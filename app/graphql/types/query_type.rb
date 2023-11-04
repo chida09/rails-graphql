@@ -14,6 +14,15 @@ module Types
       "Hello World!"
     end
 
-    # TODO: 追加実装
+    # GraphQLクエリでのfield名、GraphQL Type、UserTypeに対して必須かどうか
+    field :user, Types::UserType, null: false do
+      # クライアントからのGraphQLクエリでの引数、GraphQLでの型、必須かどうか
+      argument :id, ID, required: true
+    end
+
+    # fieldが指定されたとき、どのようにデータ取得するかをfieldと同名メソッドで実装する
+    def user(id:)
+      User.find(id)
+    end
   end
 end
