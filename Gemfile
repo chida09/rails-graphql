@@ -66,3 +66,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'graphql'
+group :development do
+  gem 'graphiql-rails'
+end
